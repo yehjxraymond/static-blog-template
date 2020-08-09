@@ -1,0 +1,79 @@
+/* eslint-disable  @typescript-eslint/camelcase */
+
+const siteName = "Sample Blog";
+const siteShortName = "Sample Blog";
+const siteUrl = "https://geek.sg/";
+const siteDescription = "Sample blog template";
+const siteKeyword = "";
+const siteLogo = "logo.png";
+const siteLogoFolder = `static/${siteLogo}`;
+
+module.exports = {
+  siteMetadata: {
+    title: siteName,
+    siteUrl,
+    description: siteDescription,
+  },
+  plugins: [
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-typescript",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-robots-txt",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/static`,
+      },
+    },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: siteName,
+        short_name: siteShortName,
+        description: siteDescription,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        lang: "en",
+        start_url: "/",
+        include_favicon: true,
+        icon: siteLogoFolder, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-plugin-seo",
+      options: {
+        siteName,
+        defaultSiteImage: siteLogo,
+        siteUrl,
+        keywords: siteKeyword,
+        globalSchema: `{
+            "@type": "WebSite",
+            "@id": "${siteUrl}",
+            "url": "${siteUrl}",
+            "name": "${siteName}",
+            "publisher": {
+              "@id": "${siteUrl}"
+            },
+            "image": {
+              "@type": "ImageObject",
+              "@id": "${siteUrl}${siteLogo}",
+              "url": "${siteUrl}${siteLogo}",
+              "caption": siteName
+            }
+          }`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl,
+        noTrailingSlash: false,
+      },
+    },
+  ],
+};

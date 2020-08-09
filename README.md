@@ -1,0 +1,4 @@
+# Gatsby Blog
+
+## Assets
+
