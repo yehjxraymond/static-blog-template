@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Header, MenuItem } from "./header";
-import icon from "../../../static/logo.png";
+import icon from "../../../../static/logo.png";
 
 const story = storiesOf("Components|Layout", module);
 

@@ -8,4 +8,5 @@ Replace the logo in `static/logo.png` and run `npm run generate-favicon` to gene
 
 ### TODO
 
+- active in menu bar
 - configurable menu bar

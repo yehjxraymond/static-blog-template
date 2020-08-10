@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import { withPrefix } from "gatsby";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 import { Header, MenuItem } from "./header";
+import { Footer } from "./footer";
 import icon from "../../../static/logo.png";
 
 const logo = <img className="w-auto h-15" src={icon} alt="Workflow" />;
@@ -16,6 +17,13 @@ const menuItems: MenuItem[] = [
     href: "/about/",
   },
 ];
+
+const footer = {
+  copyrightOwner: "GEEK SG",
+  linkedin: "https://www.linkedin.com/in/raymondyeh/",
+  github: "https://github.com/yehjxraymond",
+  instagram: "https://www.instagram.com/geek.sg/"
+};
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const { title, description } = useSiteMetadata();
@@ -60,9 +68,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       <div className="min-h-screen">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
       </div>
-      {/* <Header active={active} />
-
-      <Footer /> */}
+      <Footer {...footer} />
     </>
   );
 };
