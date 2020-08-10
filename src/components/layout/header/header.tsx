@@ -62,7 +62,7 @@ export const FlyoutMenu: FunctionComponent<MenuItemWithDropdown> = ({
           <div className="rounded-lg shadow-xs overflow-hidden">
             <div className="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
               {dropdownItems.map(
-                ({ label, description, href, icon }, index) => (
+                ({ label: text, description, href, icon }, index) => (
                   <a
                     key={index}
                     href={href}
@@ -71,7 +71,7 @@ export const FlyoutMenu: FunctionComponent<MenuItemWithDropdown> = ({
                     {icon}
                     <div className="space-y-1">
                       <p className="text-base leading-6 font-medium text-gray-900">
-                        {label}
+                        {text}
                       </p>
                       <p className="text-sm leading-5 text-gray-500">
                         {description}
@@ -99,7 +99,9 @@ export const MobileFlyoutMenu: FunctionComponent<MenuItemWithDropdown> = ({
     <>
       <div
         onClick={toggleIsOpen}
-        className={`${isOpen ? "bg-gray-50" : ""} -m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150 text-base leading-6 font-medium text-gray-900 justify-between cursor-pointer`}
+        className={`${
+          isOpen ? "bg-gray-50" : ""
+        } -m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150 text-base leading-6 font-medium text-gray-900 justify-between cursor-pointer`}
       >
         <div>{label}</div>
         <div>
@@ -117,14 +119,14 @@ export const MobileFlyoutMenu: FunctionComponent<MenuItemWithDropdown> = ({
         </div>
       </div>
       {isOpen &&
-        dropdownItems.map(({ label, href }, index) => (
+        dropdownItems.map(({ label: text, href }, index) => (
           <a
             key={index}
             href={href}
             className="-m-3 pl-6 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
           >
             <div className="text-base leading-6 font-medium text-gray-900">
-              {label}
+              {text}
             </div>
           </a>
         ))}

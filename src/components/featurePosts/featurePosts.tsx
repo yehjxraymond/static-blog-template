@@ -40,9 +40,9 @@ export const FeaturePost: FunctionComponent<FeaturePost> = ({
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
           <p className="text-sm leading-5 font-medium text-indigo-600">
-            {tags.map(({ label, href }, index) => (
+            {tags.map(({ label, href: tagHref }, index) => (
               <span key={index}>
-                <a href={href} className="hover:underline">
+                <a href={tagHref} className="hover:underline">
                   {label}
                 </a>{" "}
               </span>

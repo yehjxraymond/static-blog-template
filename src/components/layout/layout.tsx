@@ -22,7 +22,7 @@ const footer = {
   copyrightOwner: "GEEK SG",
   linkedin: "https://www.linkedin.com/in/raymondyeh/",
   github: "https://github.com/yehjxraymond",
-  instagram: "https://www.instagram.com/geek.sg/"
+  instagram: "https://www.instagram.com/geek.sg/",
 };
 
 export const Layout = ({ children }: { children: ReactNode }) => {
