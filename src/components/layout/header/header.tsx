@@ -130,62 +130,6 @@ export const MobileFlyoutMenu: FunctionComponent<MenuItemWithDropdown> = ({
         ))}
     </>
   );
-
-  /* Item active: "text-gray-900", Item inactive: "text-gray-500" */
-  // return (
-  //   <div className="relative">
-  //     <button
-  //       onClick={toggleIsOpen}
-  //       type="button"
-  //       className="text-gray-500 group inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
-  //     >
-  //       <span>{label}</span>
-  //       {/* Item active: "text-gray-600", Item inactive: "text-gray-400" */}
-  //       <svg
-  //         className="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150"
-  //         viewBox="0 0 20 20"
-  //         fill="currentColor"
-  //       >
-  //         <path
-  //           fillRule="evenodd"
-  //           d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-  //           clipRule="evenodd"
-  //         />
-  //       </svg>
-  //     </button>
-  //     <div
-  //       className={`${
-  //         isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
-  //       } transition ease-in duration-150 absolute -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2`}
-  //     >
-  //       <div className="rounded-lg shadow-lg">
-  //         <div className="rounded-lg shadow-xs overflow-hidden">
-  //           <div className="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-  //             {dropdownItems.map(
-  //               ({ label, description, href, icon }, index) => (
-  //                 <a
-  //                   key={index}
-  //                   href={href}
-  //                   className="-m-3 p-3 flex items-start space-x-4 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
-  //                 >
-  //                   {icon}
-  //                   <div className="space-y-1">
-  //                     <p className="text-base leading-6 font-medium text-gray-900">
-  //                       {label}
-  //                     </p>
-  //                     <p className="text-sm leading-5 text-gray-500">
-  //                       {description}
-  //                     </p>
-  //                   </div>
-  //                 </a>
-  //               )
-  //             )}
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };
 
 const isMenuItemWithDropdown = (
@@ -246,16 +190,6 @@ export const Header: FunctionComponent<Header> = ({ menuItems, logo }) => {
           </nav>
         </div>
       </div>
-      {/*
-  Mobile menu, show/hide based on mobile menu state.
-
-  Entering: "duration-200 ease-out"
-    From: "opacity-0 scale-95"
-    To: "opacity-100 scale-100"
-  Leaving: "duration-100 ease-in"
-    From: "opacity-100 scale-100"
-    To: "opacity-0 scale-95"
-*/}
       {mobileDrawerOn && (
         <div
           className={`duration-100 ease-in absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden`}
@@ -291,7 +225,7 @@ export const Header: FunctionComponent<Header> = ({ menuItems, logo }) => {
                   <nav className="grid row-gap-8">
                     {menuItems.map((menuItem, index) =>
                       isMenuItemWithDropdown(menuItem) ? (
-                        <MobileFlyoutMenu {...menuItem} />
+                        <MobileFlyoutMenu {...menuItem} key={index} />
                       ) : (
                         <a
                           key={index}

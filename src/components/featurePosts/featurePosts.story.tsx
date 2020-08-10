@@ -1,6 +1,8 @@
 import React from "react";
-import { Layout } from "../components/layout";
-import { FeaturePosts, FeaturePost } from "../components/featurePosts";
+import { storiesOf } from "@storybook/react";
+import { FeaturePosts, FeaturePost } from "./featurePosts";
+
+const story = storiesOf("Components|Home", module);
 
 const sample: FeaturePost = {
   title: "Boost your conversion rate",
@@ -30,12 +32,6 @@ const sample: FeaturePost = {
   ],
 };
 
-const Home = () => {
-  return (
-    <Layout>
-      <FeaturePosts featurePosts={[sample, sample, sample, sample]} />
-    </Layout>
-  );
-};
-
-export default Home;
+story.add("FeaturePosts", () => (
+  <FeaturePosts featurePosts={[sample, sample, sample, sample]} />
+));
