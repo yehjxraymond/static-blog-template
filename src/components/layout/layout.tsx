@@ -2,7 +2,20 @@ import React, { ReactNode } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from "gatsby";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
-import { Header } from "./header";
+import { Header, MenuItem } from "./header";
+import icon from "../../../static/logo.png";
+
+const logo = <img className="w-auto h-15" src={icon} alt="Workflow" />;
+const menuItems: MenuItem[] = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "About",
+    href: "/about/",
+  },
+];
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const { title, description } = useSiteMetadata();
@@ -43,7 +56,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content={`${withPrefix("/")}logo.png`} />
       </Helmet>
-      <Header />
+      <Header menuItems={menuItems} logo={logo} />
       <div className="min-h-screen">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
       </div>
