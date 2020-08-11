@@ -1,24 +1,11 @@
 import React, { FunctionComponent } from "react";
-
-export interface Tag {
-  label: string;
-  href: string;
-}
-
-export interface FeaturePost {
-  title: string;
-  summary: string;
-  href: string;
-  img: string;
-  imgAlt?: string;
-  tags: Tag[];
-}
+import { PostSnippet } from "../../types";
 
 export interface FeaturePosts {
-  featurePosts: FeaturePost[];
+  featurePosts: PostSnippet[];
 }
 
-export const FeaturePost: FunctionComponent<FeaturePost> = ({
+export const FeaturePost: FunctionComponent<PostSnippet> = ({
   title,
   summary,
   href,
@@ -64,12 +51,12 @@ export const FeaturePosts: FunctionComponent<FeaturePosts> = ({
   featurePosts,
 }) => {
   return (
-    <div className="relative pt-6 pb-20 lg:pb-28">
+    <div className="relative py-6">
       <div className="relative max-w-7xl mx-auto">
-        <h2 className="text-2xl leading-9 tracking-tight font-semibold text-gray-900 sm:text-xl sm:leading-10">
+        <h2 className="text-2xl leading-9 tracking-tight font-semibold text-gray-900 sm:leading-10 text-center mt-4 mb-12 hidden">
           Featured Posts
         </h2>
-        <div className="mt-3 grid gap-5 max-w-lg mx-auto md:grid-cols-2 xl:grid-cols-4 md:max-w-none">
+        <div className="mt-3 grid gap-5 xl:gap-10 max-w-lg mx-auto grid-cols-1 md:grid-cols-3 md:max-w-none">
           {featurePosts.map((featurePost, index) => (
             <FeaturePost {...featurePost} key={index} />
           ))}

@@ -141,7 +141,7 @@ const isMenuItemWithDropdown = (
 };
 
 export const Header: FunctionComponent<Header> = ({ menuItems, logo }) => {
-  const [mobileDrawerOn, setMobileDrawerOn] = useState(true);
+  const [mobileDrawerOn, setMobileDrawerOn] = useState(false);
   const toggleMobileDrawer = () => {
     setMobileDrawerOn(!mobileDrawerOn);
   };
@@ -194,7 +194,7 @@ export const Header: FunctionComponent<Header> = ({ menuItems, logo }) => {
       </div>
       {mobileDrawerOn && (
         <div
-          className={`duration-100 ease-in absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden`}
+          className={`duration-100 ease-in absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50`}
         >
           <div className="rounded-lg shadow-lg">
             <div className="rounded-lg shadow-xs bg-white divide-y-2 divide-gray-50">

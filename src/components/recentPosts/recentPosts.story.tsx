@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
+import { RecentPosts } from "./recentPosts";
 import { PostSnippet } from "../../types";
-import { FeaturePosts } from "./featurePosts";
 
 const story = storiesOf("Components|Home", module);
 
@@ -34,6 +34,6 @@ const sample: PostSnippet = {
   publishedDate: new Date(),
 };
 
-story.add("FeaturePosts", () => (
-  <FeaturePosts featurePosts={[sample, sample, sample, sample]} />
+story.add("RecentPosts", () => (
+  <RecentPosts recentPosts={[sample, sample, sample, sample]} />
 ));

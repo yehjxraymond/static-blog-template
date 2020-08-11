@@ -1,8 +1,10 @@
 import React from "react";
 import { Layout } from "../components/layout";
-import { FeaturePosts, FeaturePost } from "../components/featurePosts";
+import { PostSnippet } from "../types";
+import { FeaturePosts } from "../components/featurePosts";
+import { RecentPosts } from "../components/recentPosts";
 
-const sample: FeaturePost = {
+const sample: PostSnippet = {
   title: "Boost your conversion rate",
   summary:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.",
@@ -28,12 +30,14 @@ const sample: FeaturePost = {
       href: "/tags/blockchain",
     },
   ],
+  publishedDate: new Date(),
 };
 
 const Home = () => {
   return (
     <Layout>
-      <FeaturePosts featurePosts={[sample, sample, sample, sample]} />
+      <FeaturePosts featurePosts={[sample, sample, sample]} />
+      <RecentPosts recentPosts={[sample, sample, sample, sample]} />
     </Layout>
   );
 };
