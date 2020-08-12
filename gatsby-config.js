@@ -75,5 +75,8 @@ module.exports = {
         noTrailingSlash: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+    },
   ],
 };
