@@ -11,7 +11,7 @@ const sample: PostSnippet = {
   img:
     "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80",
   imgAlt: "",
-  href: "#",
+  href: "/blog",
   tags: [
     {
       label: "#finance",
@@ -36,7 +36,7 @@ const sample: PostSnippet = {
 const Home = () => {
   return (
     <Layout>
-      <FeaturePosts featurePosts={[sample, sample, sample]} />
+      <FeaturePosts featurePosts={[sample, sample, sample, sample]} />
       <RecentPosts recentPosts={[sample, sample, sample, sample]} />
     </Layout>
   );

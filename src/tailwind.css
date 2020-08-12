@@ -2,4 +2,8 @@
 
 @tailwind components;
 
+.h-144 {
+  height: 36rem;
+}
+
 @tailwind utilities;

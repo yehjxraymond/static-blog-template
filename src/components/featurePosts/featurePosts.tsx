@@ -47,17 +47,43 @@ export const FeaturePost: FunctionComponent<PostSnippet> = ({
   );
 };
 
+export const TopFeaturePost: FunctionComponent<PostSnippet> = ({
+  title,
+  summary,
+  href,
+  img,
+  imgAlt,
+}) => {
+  return (
+    <div>
+      <a href={href}>
+        <img
+          className="h-144 w-full object-cover rounded"
+          src={img}
+          alt={imgAlt || title}
+        />
+        <h1 className="text-4xl text-center my-3">{title}</h1>
+        <div className="mb-16 max-w-prose mx-auto text-center text-lg text-gray-600">
+          {summary}
+        </div>
+      </a>
+    </div>
+  );
+};
+
 export const FeaturePosts: FunctionComponent<FeaturePosts> = ({
   featurePosts,
 }) => {
+  const [topPost, ...otherFeature] = featurePosts;
   return (
     <div className="relative py-6">
       <div className="relative max-w-7xl mx-auto">
-        <h2 className="text-2xl leading-9 tracking-tight font-semibold text-gray-900 sm:leading-10 text-center mt-4 mb-12 hidden">
+        <TopFeaturePost {...topPost} />
+        <h2 className="text-2xl leading-9 tracking-tight font-semibold text-gray-900 sm:leading-10 text-center mt-3 mb-8">
           Featured Posts
         </h2>
         <div className="mt-3 grid gap-5 xl:gap-10 max-w-lg mx-auto grid-cols-1 md:grid-cols-3 md:max-w-none">
-          {featurePosts.map((featurePost, index) => (
+          {otherFeature.map((featurePost, index) => (
             <FeaturePost {...featurePost} key={index} />
           ))}
         </div>
