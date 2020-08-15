@@ -18,6 +18,8 @@ interface PostQuery {
   };
 }
 
+const POST_PER_PAGE = 10;
+
 export const createPages = async ({
   actions,
   graphql,
@@ -55,27 +57,44 @@ export const createPages = async ({
   const posts = result.data?.allMarkdownRemark.edges;
   const tagsCollection = new Set<string>();
 
-  if (posts)
-    posts.forEach((edge) => {
-      const {
-        id,
-        frontmatter: { tags },
-      } = edge.node;
-      tags.forEach((tag) => tagsCollection.add(tag));
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve(
-          `src/createPages/templates/${String(
-            edge.node.frontmatter.template
-          )}.tsx`
-        ),
-        context: {
-          id,
-          tags,
-        },
-      });
-    });
+  if (!posts) throw new Error("No blog posts found");
 
+  posts.forEach((edge) => {
+    const {
+      id,
+      frontmatter: { tags },
+    } = edge.node;
+    tags.forEach((tag) => tagsCollection.add(tag));
+    createPage({
+      path: edge.node.fields.slug,
+      component: path.resolve(
+        `src/createPages/templates/${edge.node.frontmatter.template}.tsx`
+      ),
+      context: {
+        id,
+        tags,
+      },
+    });
+  });
+
+  // Create Blog List Pages
+  const numPages = Math.ceil(posts.length / POST_PER_PAGE);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: `/page/${i + 1}`,
+      component: path.resolve(`src/createPages/templates/blog-list.tsx`),
+      context: {
+        limit: POST_PER_PAGE,
+        skip: i * POST_PER_PAGE,
+        numPages,
+        currentPage: i + 1,
+        hasNext: i + 1 < numPages,
+      },
+    });
+  });
+
+  // Create Tags Pages
   tagsCollection.forEach((tag) => {
     createPage({
       path: `/tags/${tag}`,

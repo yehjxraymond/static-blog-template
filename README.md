@@ -10,4 +10,3 @@ Replace the logo in `static/logo.png` and run `npm run generate-favicon` to gene
 
 - active in menu bar
 - configurable menu bar
-- blog pages (https://storyhub-minimal.redq.now.sh/page/2)
