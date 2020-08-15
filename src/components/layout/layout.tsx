@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { FunctionComponent } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from "gatsby";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
@@ -25,7 +25,7 @@ const footer = {
   instagram: "https://www.instagram.com/geek.sg/",
 };
 
-export const Layout = ({ children }: { children: ReactNode }) => {
+export const Layout: FunctionComponent = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
     <>

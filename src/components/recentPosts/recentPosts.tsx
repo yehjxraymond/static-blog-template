@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import Image from "gatsby-image";
 import { PostSnippet } from "../../types";
 
 export interface RecentPosts {
@@ -17,20 +18,20 @@ export const RecentPost: FunctionComponent<PostSnippet> = ({
     <div className="flex mb-16 sm:mb-28 flex-col sm:flex-row">
       <div className="flex-shrink-0 mr-0 sm:mr-8 mb-6 sm:mb-0">
         <a href={href}>
-          <img
-            className="h-48 w-full sm:w-48 xl:h-52 xl:w-52 object-cover rounded-sm"
-            src={img}
+          <Image
+            fluid={img}
             alt={imgAlt || title}
+            className="h-48 w-full sm:w-48 xl:h-52 xl:w-52 object-cover rounded-sm"
           />
         </a>
       </div>
       <div className="flex-1 flex flex-col justify-between">
         <div className="">
           <div className="text-sm leading-5 font-medium text-indigo-600">
-            {tags.map(({ label, href: tagHref }, index) => (
+            {tags.map((tag, index) => (
               <span key={index} className="mr-4">
-                <a href={tagHref} className="hover:underline">
-                  {label}
+                <a href={`/tags/${tag}`} className="hover:underline">
+                  {tag}
                 </a>
               </span>
             ))}

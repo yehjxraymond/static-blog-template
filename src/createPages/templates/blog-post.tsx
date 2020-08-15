@@ -114,7 +114,11 @@ const BlogPostTemplate: FunctionComponent<BlogPostTemplate> = ({
   );
 };
 
-export default ({ data }: { data: QueryData }) => {
+interface Page {
+  data: QueryData;
+}
+
+export const Page: FunctionComponent<Page> = ({ data }) => {
   const {
     markdownRemark: {
       html,
@@ -143,3 +147,5 @@ export default ({ data }: { data: QueryData }) => {
     </Layout>
   );
 };
+
+export default Page;

@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import Image from "gatsby-image";
 import { PostSnippet } from "../../types";
 
 export interface FeaturePosts {
@@ -17,20 +18,20 @@ export const FeaturePost: FunctionComponent<PostSnippet> = ({
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
       <div className="flex-shrink-0">
         <a href={href}>
-          <img
-            className="h-48 w-full object-cover"
-            src={img}
+          <Image
+            fluid={img}
             alt={imgAlt || title}
+            className="h-48 w-full object-cover"
           />
         </a>
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
           <p className="text-sm leading-5 font-medium text-indigo-600">
-            {tags.map(({ label, href: tagHref }, index) => (
+            {tags.map((tag, index) => (
               <span key={index}>
-                <a href={tagHref} className="hover:underline">
-                  {label}
+                <a href={`/tags/${tag}}`} className="hover:underline">
+                  {tag}
                 </a>{" "}
               </span>
             ))}
@@ -57,10 +58,10 @@ export const TopFeaturePost: FunctionComponent<PostSnippet> = ({
   return (
     <div>
       <a href={href}>
-        <img
-          className="h-144 w-full object-cover rounded"
-          src={img}
+        <Image
+          fluid={img}
           alt={imgAlt || title}
+          className="h-144 w-full object-cover rounded"
         />
         <h1 className="text-4xl text-center my-3">{title}</h1>
         <div className="mb-16 max-w-prose mx-auto text-center text-lg text-gray-600">

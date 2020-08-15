@@ -1,3 +1,5 @@
+import { FluidObject } from "gatsby-image";
+
 type TemplateKey = "blog-post";
 
 export interface Tag {
@@ -9,9 +11,9 @@ export interface PostSnippet {
   title: string;
   summary: string;
   href: string;
-  img: string;
-  imgAlt?: string;
-  tags: Tag[];
+  img: FluidObject;
+  imgAlt: string;
+  tags: string[];
   publishedDate: Date;
 }
 

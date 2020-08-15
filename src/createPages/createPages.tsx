@@ -18,7 +18,10 @@ interface PostQuery {
   };
 }
 
-export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
+export const createPages = async ({
+  actions,
+  graphql,
+}: CreatePagesArgs): Promise<void> => {
   const { createPage } = actions;
   const result = await graphql<PostQuery>(`
     {
@@ -43,8 +46,14 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
     throw new Error("Unexpected error from graphql query during create pages");
   }
 
+  createPage({
+    path: "/",
+    component: path.resolve(`src/createPages/templates/home.tsx`),
+    context: {},
+  });
+
   const posts = result.data?.allMarkdownRemark.edges;
-  posts &&
+  if (posts)
     posts.forEach((edge) => {
       const {
         id,
