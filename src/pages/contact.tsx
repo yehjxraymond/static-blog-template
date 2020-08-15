@@ -10,6 +10,8 @@ const createFormDataObj = (data: any) => {
   return formData as any;
 };
 
+const FORM_NAME = "Contact Form";
+
 export const NotFound: FunctionComponent = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -20,7 +22,7 @@ export const NotFound: FunctionComponent = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // This `data` object is what's passed to the createFormDataObj. It needs all of your form fields, where the key is the name= attribute and the value is the value=
     const data = {
-      "form-name": "contact",
+      "form-name": FORM_NAME,
       FirstName: firstName,
       LastName: lastName,
       Email: email,
@@ -58,10 +60,10 @@ export const NotFound: FunctionComponent = () => {
                 Contact Me
               </h2>
               <form
-                name="Contact Form"
+                name={FORM_NAME}
                 data-netlify="true"
                 onSubmit={handleSubmit}
-                action="#"
+                action="/contact-success"
                 method="POST"
                 className="mt-9 grid grid-cols-1 row-gap-6 sm:grid-cols-2 sm:col-gap-8"
               >
