@@ -89,7 +89,7 @@ export const NotFound: FunctionComponent = () => {
                   </label>
                   <div className="mt-1 relative rounded-md shadow-sm">
                     <input
-                      value={firstName}
+                      value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       name="LastName"
                       id="last_name"
