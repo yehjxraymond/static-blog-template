@@ -9,12 +9,12 @@ backend:
     deleteMedia: '[skip ci] Delete “{{path}}”'
 
 media_folder: static/images
-public_folder: /images
+public_folder: ../../static/images
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "blog"
+    folder: "content/blog"
     create: true
     slug: "{{slug}}"
     fields:
