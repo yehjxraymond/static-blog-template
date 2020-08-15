@@ -14,7 +14,7 @@ const menuItems: MenuItem[] = [
   },
   {
     label: "Contact",
-    href: "/contact/",
+    href: "/contact",
   },
 ];
 
@@ -26,14 +26,11 @@ const footer = {
 };
 
 export const Layout: FunctionComponent = ({ children }) => {
-  const { title, description } = useSiteMetadata();
+  const { title } = useSiteMetadata();
   return (
     <>
       <Helmet>
-        <html lang="en" />
         <title>{title}</title>
-        <meta name="description" content={description} />
-
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -59,10 +56,6 @@ export const Layout: FunctionComponent = ({ children }) => {
         />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <meta name="theme-color" content="#fff" />
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content="/" />
-        <meta property="og:image" content={`${withPrefix("/")}logo.png`} />
       </Helmet>
       <Header menuItems={menuItems} logo={logo} />
       <div className="min-h-screen">

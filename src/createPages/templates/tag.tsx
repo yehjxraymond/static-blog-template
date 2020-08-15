@@ -4,6 +4,7 @@ import { FluidObject } from "gatsby-image";
 import { Layout } from "../../components/layout";
 import { TagCollection } from "../../components/tagCollection";
 import { PostSnippet } from "../../types";
+import { SEO } from "../../components/seo";
 
 interface Post {
   node: {
@@ -77,9 +78,12 @@ export const Page: FunctionComponent<QueryData> = ({ data, pageContext }) => {
     })
   );
   return (
-    <Layout>
-      <TagCollection tag={pageContext.tag} relatedPosts={relatedPost} />
-    </Layout>
+    <>
+      <SEO title={pageContext.tag} image={relatedPost[0].img.src} />
+      <Layout>
+        <TagCollection tag={pageContext.tag} relatedPosts={relatedPost} />
+      </Layout>
+    </>
   );
 };
 

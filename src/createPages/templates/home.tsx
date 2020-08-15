@@ -6,6 +6,7 @@ import { PostSnippet } from "../../types";
 import { FeaturePosts } from "../../components/featurePosts";
 import { RecentPosts } from "../../components/recentPosts";
 import { Pagination } from "../../components/pagination";
+import { SEO } from "../../components/seo";
 
 export const pageQuery = graphql`
   {
@@ -112,11 +113,14 @@ const Home: FunctionComponent<Home> = ({ data }) => {
   );
   const recentPostData: PostSnippet[] = data.recentPosts.edges.map(mapPostData);
   return (
-    <Layout>
-      <FeaturePosts featurePosts={featuredPostData} />
-      <RecentPosts recentPosts={recentPostData} />
-      <Pagination next="/page/2/" />
-    </Layout>
+    <>
+      <SEO title="Home" image="/logo.png"/>
+      <Layout>
+        <FeaturePosts featurePosts={featuredPostData} />
+        <RecentPosts recentPosts={recentPostData} />
+        <Pagination next="/page/2" />
+      </Layout>
+    </>
   );
 };
 

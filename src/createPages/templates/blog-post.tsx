@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { graphql } from "gatsby";
 import { FluidObject } from "gatsby-image";
 import { BlogPost } from "../../components/blogPost";
+import { SEO } from "../../components/seo";
 interface QueryData {
   markdownRemark: {
     html: string;
@@ -13,6 +14,7 @@ interface QueryData {
       };
       imgAlt: string;
       publishedDate: string;
+      description: string;
     };
   };
 }
@@ -56,7 +58,6 @@ export const pageQuery = graphql`
             description
             tags
             img {
-              publicURL
               childImageSharp {
                 fluid(maxWidth: 370, maxHeight: 220, quality: 90) {
                   ...GatsbyImageSharpFluid_noBase64
@@ -82,6 +83,7 @@ export const Page: FunctionComponent<Page> = ({ data }) => {
         title,
         tags,
         imgAlt,
+        description,
         img: {
           childImageSharp: { fluid: img },
         },
@@ -89,16 +91,20 @@ export const Page: FunctionComponent<Page> = ({ data }) => {
       },
     },
   } = data;
+
   return (
-    <BlogPost
-      title={title}
-      tags={tags}
-      img={img}
-      imgAlt={imgAlt}
-      publishedDate={new Date(publishedDate)}
-    >
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </BlogPost>
+    <>
+      <SEO title={title} image={img.src} description={description} />
+      <BlogPost
+        title={title}
+        tags={tags}
+        img={img}
+        imgAlt={imgAlt}
+        publishedDate={new Date(publishedDate)}
+      >
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </BlogPost>
+    </>
   );
 };
 

@@ -30,7 +30,7 @@ export const FeaturePost: FunctionComponent<PostSnippet> = ({
           <p className="text-sm leading-5 font-medium text-indigo-600">
             {tags.map((tag, index) => (
               <span key={index}>
-                <a href={`/tags/${tag}}`} className="hover:underline">
+                <a href={`/tags/${tag}`} className="hover:underline">
                   #{tag}
                 </a>{" "}
               </span>

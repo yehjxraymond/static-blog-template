@@ -4,6 +4,7 @@ import { FluidObject } from "gatsby-image";
 import { Layout } from "../../components/layout";
 import { PostSnippet } from "../../types";
 import { BlogList } from "../../components/blogList";
+import { SEO } from "../../components/seo";
 
 interface Post {
   node: {
@@ -76,13 +77,20 @@ export const Page: FunctionComponent<QueryData> = ({ data, pageContext }) => {
     publishedDate: new Date(node.frontmatter.publishedDate),
   }));
   return (
-    <Layout>
-      <BlogList
-        posts={posts}
-        page={pageContext.currentPage}
-        hasNext={pageContext.hasNext}
+    <>
+      <SEO
+        title={`Page ${pageContext.currentPage}`}
+        image={posts[0].img.src}
+        description={`Page ${pageContext.currentPage}`}
       />
-    </Layout>
+      <Layout>
+        <BlogList
+          posts={posts}
+          page={pageContext.currentPage}
+          hasNext={pageContext.hasNext}
+        />
+      </Layout>
+    </>
   );
 };
 

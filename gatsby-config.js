@@ -98,7 +98,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
         siteUrl,
-        noTrailingSlash: false,
+        noTrailingSlash: true,
       },
     },
     {
