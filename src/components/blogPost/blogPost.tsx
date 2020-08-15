@@ -22,7 +22,7 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
   return (
     <Layout>
       <div className="">
-        <h1 className="text-5xl text-center font-semibold mt-8 mb-2">
+        <h1 className="text-3xl sm:text-5xl text-center font-semibold mt-8 mb-2">
           {title}
         </h1>
         <div className="text-center mb-3 text-gray-500">
@@ -30,8 +30,11 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
         </div>
         <div className="text-center mb-3 text-gray-500">
           {tags.map((tag, index) => (
-            <span key={index} className="mx-2">
-              #{tag}
+            <span
+              key={index}
+              className="text-sm leading-5 font-medium text-indigo-600 mx-2"
+            >
+              <a href={`/tags/${tag}`}>#{tag}</a>
             </span>
           ))}
         </div>

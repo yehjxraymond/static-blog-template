@@ -26,26 +26,22 @@ export const PostListItem: FunctionComponent<PostSnippet> = ({
         </a>
       </div>
       <div className="flex-1 flex flex-col justify-between">
-        <div className="">
-          <div className="text-sm leading-5 font-medium text-indigo-600">
-            {tags.map((tag, index) => (
-              <span key={index} className="mr-4">
-                <a href={`/tags/${tag}`} className="hover:underline">
-                  #{tag}
-                </a>
-              </span>
-            ))}
-          </div>
-          <div>
-            <a href={href} className="block">
-              <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
-                {title}
-              </h3>
-              <p className="mt-3 text-base leading-6 text-gray-500">
-                {summary}
-              </p>
-            </a>
-          </div>
+        <div>
+          <a href={href} className="block">
+            <h3 className="mb-2 text-xl leading-7 font-semibold text-gray-900">
+              {title}
+            </h3>
+            <div className="text-sm leading-5 font-medium text-indigo-600">
+              {tags.map((tag, index) => (
+                <span key={index} className="mr-4">
+                  <a href={`/tags/${tag}`} className="hover:underline">
+                    #{tag}
+                  </a>
+                </span>
+              ))}
+            </div>
+            <p className="mt-3 text-base leading-6 text-gray-500">{summary}</p>
+          </a>
         </div>
         <div className="mt-4">
           <a href={href} className="block font-medium tracking-wide">

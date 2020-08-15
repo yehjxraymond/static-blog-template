@@ -13,8 +13,8 @@ const menuItems: MenuItem[] = [
     href: "/",
   },
   {
-    label: "About",
-    href: "/about/",
+    label: "Contact",
+    href: "/contact/",
   },
 ];
 
