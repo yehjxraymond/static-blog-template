@@ -53,12 +53,15 @@ export const createPages = async ({
   });
 
   const posts = result.data?.allMarkdownRemark.edges;
+  const tagsCollection = new Set<string>();
+
   if (posts)
     posts.forEach((edge) => {
       const {
         id,
         frontmatter: { tags },
       } = edge.node;
+      tags.forEach((tag) => tagsCollection.add(tag));
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
@@ -72,4 +75,14 @@ export const createPages = async ({
         },
       });
     });
+
+  tagsCollection.forEach((tag) => {
+    createPage({
+      path: `/tags/${tag}`,
+      component: path.resolve(`src/createPages/templates/tag.tsx`),
+      context: {
+        tag,
+      },
+    });
+  });
 };

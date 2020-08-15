@@ -31,7 +31,7 @@ export const FeaturePost: FunctionComponent<PostSnippet> = ({
             {tags.map((tag, index) => (
               <span key={index}>
                 <a href={`/tags/${tag}}`} className="hover:underline">
-                  {tag}
+                  #{tag}
                 </a>{" "}
               </span>
             ))}
