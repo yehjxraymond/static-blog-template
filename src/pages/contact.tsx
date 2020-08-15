@@ -58,6 +58,7 @@ export const NotFound: FunctionComponent = () => {
                 Contact Me
               </h2>
               <form
+                data-netlify="true"
                 onSubmit={handleSubmit}
                 action="#"
                 method="POST"
