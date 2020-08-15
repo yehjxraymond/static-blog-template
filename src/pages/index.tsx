@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Layout } from "../components/layout";
 import { PostSnippet } from "../types";
 import { FeaturePosts } from "../components/featurePosts";
@@ -33,7 +33,7 @@ const sample: PostSnippet = {
   publishedDate: new Date(),
 };
 
-const Home = () => {
+const Home: FunctionComponent = () => {
   return (
     <Layout>
       <FeaturePosts featurePosts={[sample, sample, sample, sample]} />

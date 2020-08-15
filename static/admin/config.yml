@@ -26,4 +26,4 @@ collections:
       - {label: "Featured Image", name: "img", widget: image}
       - {label: "Image Caption", name: "imgAlt", widget: string}
       - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Body", name: "content", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown"}

@@ -1,5 +1,3 @@
-/* eslint-disable  @typescript-eslint/camelcase */
-
 const siteName = "Sample Blog";
 const siteShortName = "Sample Blog";
 const siteUrl = "https://geek.sg/";
@@ -21,10 +19,38 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-robots-txt",
     {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content`,
+        name: "contents",
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
         path: `${__dirname}/static`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 2048,
+              linkImagesToOriginal: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+          },
+        ],
       },
     },
     "gatsby-transformer-sharp",
@@ -77,6 +103,9 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-netlify-cms`,
+    },
+    {
+      resolve: `gatsby-plugin-slug`,
     },
   ],
 };

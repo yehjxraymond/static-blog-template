@@ -8,3 +8,5 @@ declare module "*.png" {
 }
 
 declare module "@storybook/react/demo";
+
+declare module "gatsby-remark-relative-images";

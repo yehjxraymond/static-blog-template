@@ -5,11 +5,6 @@ export interface RecentPosts {
   recentPosts: PostSnippet[];
 }
 
-const text = `
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue lacus viverra vitae congue eu consequat. Egestas maecenas pharetra convallis posuere morbi. Sed faucibus turpis in eu mi bibendum neque egestas. Ullamcorper a lacus vestibulum sed arcu non odio euismod. Est velit egestas dui id ornare arcu odio ut. Integer feugiat scelerisque varius morbi enim nunc faucibus. Augue eget arcu dictum varius duis at consectetur lorem donec. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Dui ut ornare lectus sit. Orci eu lobortis elementum nibh tellus molestie nunc non blandit. Et egestas quis ipsum suspendisse ultrices gravida dictum fusce. Ut sem nulla pharetra diam sit amet. Tortor pretium viverra suspendisse potenti nullam ac.
-
-In pellentesque massa placerat duis ultricies lacus sed. Ipsum dolor sit amet consectetur adipiscing elit ut. Aliquam faucibus purus in massa. Facilisi etiam dignissim diam quis enim. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Hendrerit dolor magna eget est lorem. Ipsum dolor sit amet consectetur. Non tellus orci ac auctor. Ipsum faucibus vitae aliquet nec. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Ut eu sem integer vitae justo eget magna. Non odio euismod lacinia at quis risus sed vulputate. Nibh venenatis cras sed felis eget velit aliquet sagittis. Turpis egestas sed tempus urna et pharetra pharetra. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis.`;
-
 export const RecentPost: FunctionComponent<PostSnippet> = ({
   href,
   img,

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
+import { format } from "date-fns";
 import { Layout } from "../components/layout";
 import { BlogPost } from "../types";
-import { format } from "date-fns";
 
 const content = (
   <div>
